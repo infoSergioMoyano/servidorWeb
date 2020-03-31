@@ -30,11 +30,11 @@ class Obj {
             try {
                 sql = 'CREATE TABLE productes (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, nom VARCHAR(50) NOT NULL, descripcio TEXT, preu INT(6), imatge VARCHAR(255))'
                 await db.promiseQuery(sql)
-                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Tele", "Tele molt xula", 800, "/web/imatges/producte-1.jpg")'
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Pack USA", "Viatja per tot el país Americà durant 20 dies", 1290, "/web/imatges/USA_1.jpg")'
                 await db.promiseQuery(sql)
-                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Batidora", "Batidora molt xula", 20, "/web/imatges/producte-2.png")'
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Pack Àsia", "Escull 3 paisos asiàtics i fes el viatge que sempre has desitjat.", 998, "/web/imatges/asia_1.jpg")'
                 await db.promiseQuery(sql)
-                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Aspirador", "Aspirador molt xulo", 300, "/web/imatges/producte-3.jpg")'
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Pack Europeu", "Fes una ruta per la costa Europea fins arribar als paisos Nòridcs.", 1190, "/web/imatges/eu_1.jpg")'
                 await db.promiseQuery(sql)
             } catch (e) {
                 console.error(e)

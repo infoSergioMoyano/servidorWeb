@@ -38,3 +38,31 @@ function iniciaSeccio(seccio) {
     }
 }
 
+// Script per al menú mòbil
+async function mostraMenu (evt) {
+    let refBody = document.getElementsByTagName('body')[0],
+        refSmall = document.getElementById('menuContainer'),
+        refContainer = document.getElementById('menuAmagat')
+        
+    evt.preventDefault()
+    
+    refBody.style.overflow = 'hidden' // Treure scroll
+    refSmall.style.display = 'flex'
+    await promiseWait(1)
+    refSmall.style.opacity = 1
+    refContainer.style.transform =  'translateX(0)'
+}
+async function amagaMenu (evt) {
+    let refBody = document.getElementsByTagName('body')[0],
+        refSmall = document.getElementById('menuContainer'),
+        refContainer = document.getElementById('menuAmagat')
+
+    evt.preventDefault()
+
+    refBody.style.overflow = 'auto' // Recuperar scroll
+
+    refSmall.style.opacity = 0
+    refContainer.style.transform = 'translateX(-50%)'
+    await promiseWait(500)
+    refSmall.style.display = 'none'
+}

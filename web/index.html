@@ -6,7 +6,10 @@
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap'>
         <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
         <link rel='stylesheet' href='https://code.getmdl.io/1.3.0/material.indigo-pink.min.css'>
+        <link rel='stylesheet' href='https://code.getmdl.io/1.3.0/material.teal-orange.min.css'>
         <link rel='stylesheet' href='/web/estils.css'>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
         <script src='https://code.getmdl.io/1.3.0/material.min.js' defer></script>
         <script src='/web/script-login.js'></script>
         <script src='/web/script-navegacio.js'></script>
@@ -15,49 +18,242 @@
         <script src='/web/script-seccio-frontendproductes.js'></script>
         <script src='/web/script-utils.js'></script>
         <script src='/web/script.js'></script>
-
-        <!-- Icones d'aplicació per a navegadors d'escriptori, webapps iOS i webapps Android -->
-        <!-- Icones generats amb: https://www.favicon-generator.org/ -->
-        <link href="/web/appicons/android-icon-192x192.png" rel="icon" type="image/png" sizes="192x192">
-        <link href="/web/appicons/apple-icon-180x180.png" rel="apple-touch-icon" sizes="180x180">
-        <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="/web/appicons/ms-icon-144x144.png">
-        <meta name="theme-color" content="#ffffff">
-        <link href="/web/appicons/manifest.json" rel="manifest">
+        
     </head>
     <body onload='inicia()'>
         <div id='frontendMenuWeb' class='flexRow desktop'>
+            <i id='logoMenu' class="material-icons" onclick='navegacio.canviaSeccio("frontendHome")'>title</i>
             <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendHome")'>Inici</div>
             <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendPresentacio")'>Presentació</div>
             <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendProductes")'>Productes</div>
-            <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendContacte")'>Contacte</div>
-            <div id='botoLoginWeb' class='botoMenu' onclick='popups.mostraPopup("popupLogin")'>Login backoffice</div>
+            <div class='botoMenu2' onclick='navegacio.canviaSeccio("frontendContacte")'>Contacte</div>
+            <div id='botoLoginWeb' class='botoMenu frontendMenuWebLogin' onclick='popups.mostraPopup("popupLogin")'>Login backoffice</div>
             <div id='botoGestioUsuarisWeb' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeUsuaris")'>Gestió usuaris</div>
             <div id='botoGestioProductesWeb' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeProductes")'>Gestió productes</div>
             <div id='botoLogoutWeb' class='botoMenu none' onclick='login.tancaLaSessio()'>Sortir</div>
         </div>
+         
         <div id='frontendMenuMobil' class='flexColumn mobile'>
-            <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendHome")'>Inici</div>
-            <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendPresentacio")'>Presentació</div>
-            <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendProductes")'>Productes</div>
-            <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendContacte")'>Contacte</div>
-            <div id='botoLoginMobil' class='botoMenu' onclick='popups.mostraPopup("popupLogin")'>Login backoffice</div>
-            <div id='botoGestioUsuarisMobil' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeUsuaris")'>Gestió usuaris</div>
-            <div id='botoGestioProductesMobil' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeProductes")'>Gestió productes</div>
-            <div id='botoLogoutMobil' class='botoMenu none' onclick='login.tancaLaSessio()'>Sortir</div>
+            <i class="material-icons" ontouchend='mostraMenu(event)'>menu</i>
+            <i id='logoMenu' class="material-icons">title</i>
+            <i class="material-icons">search</i>
         </div>
+        <div id="menuContainer" ontouchend='amagaMenu(event)'>
+            <div id='menuAmagat'>
+                <i id='logoMenu' class="material-icons">title</i>
+                <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendHome")'>Inici</div>
+                <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendPresentacio")'>Presentació</div>
+                <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendProductes")'>Productes</div>
+                <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendContacte")'>Contacte</div>
+                <div id='botoLoginMobil' class='botoMenu' onclick='popups.mostraPopup("popupLogin")'>Login backoffice</div>
+                <div id='botoGestioUsuarisMobil' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeUsuaris")'>Gestió usuaris</div>
+                <div id='botoGestioProductesMobil' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeProductes")'>Gestió productes</div>
+                <div id='botoLogoutMobil' class='botoMenu none' onclick='login.tancaLaSessio()'>Sortir</div>
+            </div>
+        </div>
+
         <div id='frontendHome'>
-            Pàgina principal
+            <div id='portadaWeb'>
+                <div><img id='portadaSkyline' class="flexColumn" src="/web/imatges/ny_3.jpg"></div>
+                <svg id='lineaAnimada' height="210" width="500">
+                    <line x1="0" y1="0" x2="200" y2="200" style="stroke:rgba(255, 255, 255, 0.452);stroke-width:5" />
+                </svg>
+                <div id='buscadorPortada'>
+                    <div id='tituloBuscador'>Cual será tu proximo destino?</div>
+                    <div id='opcionesBuscador1'>
+
+                        <input type="radio" value="Alojamiento">
+                        <div id='opcionesBuscador2'>Alojamiento</div>
+                        <input type="radio" value="Vuelo">
+                        <div id='opcionesBuscador2'>Vuelo</div>
+                        <input type="radio" value="Vuelo+Hotel">
+                        <div id='opcionesBuscador2'>Vuelo+Hotel</div>
+
+                    </div>
+                </div>
+            </div>
+            <div id='section1'>
+                <div id='ventana1' style="background-image: url('/web/imatges/norway_1.jpg');">
+                    NORWAY
+                </div>
+                <div id='ventana2' style="background-image: url('/web/imatges/sf_1.jpg');">
+                    SAN FRANCISCO
+                </div>
+            </div>
+            <div id='section2'>
+                <div id='ventana3'>
+                    <div id='tituloVentana3'></div>
+                </div>
+            </div>
         </div>
         <div id='frontendPresentacio'>
-            Pàgina amb una presentacio de l'empresa
+            <div id='portadaPresentacio'>
+
+                <div class="Iam">
+                <p>Qui som?</p>
+                    <b>
+                    <div class="innerIam">
+                        viatge<br /> 
+                        aventura<br />
+                        llibertat<br />
+                        cultura<br />
+                        </div>
+                    </b>
+                </div>
+                <div class="separadorPresentacio_1"></div>
+                <div id='textoPresentació_1'>
+                    <p>A Viatges Torre Roja atresorem més de 30 anys d'experiència com a agència de viatges gaudint de
+                        un prestigi a nivell nacional, que ens permet treballar amb grans clients fidels i satisfets amb
+                        nostre treball.</p>
+                </div>
+                <div id='contenedorPresentació'>
+                    <h1>La nostra historia</h1>
+                    <p> Som una empresa assentada amb un principi bàsic, com és la renovació constant avançant-nos a les
+                        necessitats i els gustos de clients tant particulars com corporatius. Disposem d'ofertes
+                        pròpies amb el màxim nivell de personalització. Som majoristes i minoristes a el temps que
+                        estem associats a l'reconegut grup de viatges Torre Roja Travels.
+                        Més enllà dels viatges, el gran actiu de Viatges Globus és el personal que atén cada compte. des
+                        del primer moment se li assignarà un Travel Manager que gestionarà personalment totes les
+                        gestions per a la seva empresa i s'encarregarà d'aplicar i optimitzar les seves polítiques de viatge, assegurant
+                        l'eficiència i l'estalvi de cada transacció.
+                        Comptem amb els mitjans tècnics més avançats i les tarifes negociades més competitives.
+                        Estem segurs de poder oferir la millor oferta business unint qualitat de viatge amb un estalvi
+                        efectiu per a la seva empresa i màximes facilitats de gestió, de manera que us convidem a conèixer-nos i
+                        deixar-se sorprendre per la proposta personalitzada que li presentarem.</p>
+                    <div id='separadorPresentacio_2'></div>
+                    <br/><br/><br/>
+                    <table class="taulaPresentacio">
+                        <tr>
+                          <th class="tableVacio"></th>
+                          <th class="tableTitlesRow">Torre Roja Trips</th>
+                          <th class="tableTitlesRow">Altres</th>
+                        </tr>
+                        <tr>
+                            <th class="tableTitlesColumn">Assessorament personal</th>
+                            <th class="tableContingut">Gratuït a totes les modalitats disponibles</th>
+                            <th class="tableContingut">De pagament</th>
+                        </tr>
+                        <tr>
+                            <th class="tableTitlesColumn">Cancelació gratuïta</th>
+                            <th class="tableContingut">Sempre</th>
+                            <th class="tableContingut">Poca oferta</th>
+                        </tr>
+                        <tr>
+                            <th class="tableTitlesColumn">Modificar dates</th>
+                            <th class="tableContingut">Al moment</th>
+                            <th class="tableContingut">No sempre</th>
+                        </tr>
+                        <tr>
+                            <th class="tableTitlesColumn">Pagament previ</th>
+                            <th class="tableContingut">Opcional</th>
+                            <th class="tableContingut">La majoria obligatori</th>
+                        </tr>
+                        <tr>
+                            <th class="tableTitlesColumn">Opció de transport</th>
+                            <th class="tableContingut">Transport desde aeroport a més de transport públic</th>
+                            <th class="tableContingut">No sempre</th>
+                        </tr>
+                      </table>
+                </div>
+            </div>
+            <br/><br/><br/>
         </div>
         <div id='frontendProductes'>
-            <div id='productesLoading'>Carregant productes ...</div>
-            <div id='productesContinguts' class='flexColumn'></div>
+            <div id='productesLoading'>
+                <div id='p2' class="mdl-progress mdl-js-progress mdl-progress__indeterminate">Carregant</div>
         </div>
-        <div id='frontendContacte'>
-            Pàgina amb informacio de contacte
+            <div id='subProductesBackground'></div>
+            <div id='separadorProductes'></div>
+            <div id='productesBackground'>
+                </div>
+                <a target="_blank" id='targetProductes'>Productes</a>
+
+                <div id='textProductes'>Aquests son els productes disponibles actualment. La mayoria d'ells es basen en packs per viatjar a múltiples paisos. A més, a Torre Roja Trips actualitzem cada setmana ofertes personalitzades segons les preferències de l'usuari.</div>
+
+                <div id='productesContinguts' class='flexColumn'>
+                    
+                </div>
+            </div>
+        </div>
+        <div id='frontendContacte' style="background-image: url('/web/imatges/sf_1.jpg');">
+            <div id='contingutContacte'>
+                <a target="_blank">Contacte</a>
+                <div id='mapa'><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3494.133159630792!2d-13.8222376!3d28.864657100000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc46374aa2a536df%3A0x37752cdd4e1f917b!2sPrincesa%20Yaiza%20Suite%20Hotel!5e0!3m2!1ses!2snl!4v1583927306353!5m2!1ses!2snl" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+                <br/>
+                <h1 id='h1GeneralW'>Formulari</h1>
+                <div class="separadorFormulari"></div>
+                <div id='formulariContacto'>
+                <br/><br/><br/>
+                    <body>
+                        <div class='outBox'>
+                            <form id='formBody' action='/paginaAccio' target='_blank' method='GET'>
+                                <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                    <input class='mdl-textfield__input' type='text' id='firstname' pattern="[^0-9]*">
+                                    <label class='mdl-textfield__label' for='firstname'>Nom</label>
+                                    <span class="mdl-textfield__error">El nom només pot contenir lletres</span>
+                                </div>
+                                <br/>
+                                <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                    <input class='mdl-textfield__input' type='text' id='lastname' pattern="[^0-9]*">
+                                    <label class='mdl-textfield__label' for='lastname'>Primer cognom</label>
+                                    <span class="mdl-textfield__error">El cognom només pot contenir lletres</span>
+                                </div>
+                                <br/>
+                                <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                    <input class='mdl-textfield__input' type='text' id='mail' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                                    <label class='mdl-textfield__label' for='mail'>Correu electronic</label>
+                                    <span class="mdl-textfield__error">No és un format de correu vàlid</span>
+                                </div>
+                                <br/>
+                                <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                    <input class='mdl-textfield__input' type='text' id='mail' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                                    <label class='mdl-textfield__label' for='mail'>Número de telèfon</label>
+                                    <span class="mdl-textfield__error">No és un format de correu vàlid</span>
+                                </div>
+                                <div class='subtitol'>Productes d'interés</div>
+                                <br/>
+                                <div class='opcions'>
+                                    <label class='mdl-radio mdl-js-radio mdl-js-ripple-effect' for='Transports'>
+                                        <input type='radio' id='Transports' name='Transports' value='Transports' class='mdl-radio__button' checked>
+                                        <span class='mdl-radio__label'>Transports</span>
+                                    </label>
+                                    <br/>
+                                    <label class='mdl-radio mdl-js-radio mdl-js-ripple-effect' for='Allotjament'>
+                                        <input type='radio' id='Allotjament' name='Allotjament' value='Allotjament' class='mdl-radio__button'>
+                                        <span class='mdl-radio__label'>Allotjament</span>
+                                    </label>
+                                    <br/>
+                                    <label class='mdl-radio mdl-js-radio mdl-js-ripple-effect' for='Experiències'>
+                                        <input type='radio' id='Experiències' name='Experiències' value='Experiències' class='mdl-radio__button'>
+                                        <span class='mdl-radio__label'>Experiències</span>
+                                    </label>
+                                </div>
+                                <br/>
+                                <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                    <select class='mdl-textfield__input' name='viatjar'>
+                                        <option value=''></option>
+                                        <option value='no'>No</option>
+                                        <option value='setmana'>Entre setmana</option>
+                                        <option value='total'>Total</option>
+                                    </select>
+                                    <label class='mdl-textfield__label' for='octane'>Disposició per viatjar</label>
+                                </div>
+                                <br/>
+                                <div class='mdl-textfield mdl-js-textfield mdl-textfield--floating-label'>
+                                    <textarea rows='6' class='mdl-textfield__input' type='text' id='aficionsID'></textarea>
+                                    <label class='mdl-textfield__label' for='aficionsID'>
+                                        Aficions
+                                    </label>
+                                </div>
+                                <br/>
+                                <div class='boto'>
+                                    <button type='submit' class='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored'>Enviar</button>
+                                </div>
+                            </form>
+                        </div>
+                </div>
+                <br/><br/><br/>
+            </div>
         </div>
         <div id='backofficeUsuaris'>
             <div id='backofficeUsuarisLoading'>Carregant usuaris ...</div>
@@ -68,12 +264,13 @@
         </div>
         <div id='popups' onclick='popups.amagaAmbClick(event)'>
             <div id='popupLogin' class='flexColumn'>
+                <div>Identifica't</div>
                 <div>Email:</div>
                 <input id='loginCorreu' type='text' class='halfWidth' />
                 <div>Codi:</div>
                 <input id='loginCodi' type='password' class='halfWidth' />
                 <br/>
-                <input type='button' value='entra' class='halfWidth' onclick='login.autenticaAmbFormulari()' />
+                <input type='button' value='Entra' class='buttonPopup' onclick='login.autenticaAmbFormulari()' />
                 <div id='loginLoading' class='none'>Carregant ...</div>
                 <div id='loginError' class='none'>Error al fer login ...</div>
             </div>
