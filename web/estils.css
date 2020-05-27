@@ -224,7 +224,7 @@ hr {
     border-radius: 0px 11px 11px 0px;
 }
 #frontendHome {
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 #section1 {
