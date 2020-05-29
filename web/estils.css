@@ -140,6 +140,14 @@ hr {
 #opcionesBuscador2 {
     margin-right: 2em;
 }
+#opcionesBuscador3 {
+    position: relative;
+    top: 5em;
+    left: -25em;
+}
+#botonBuscador {
+
+}
 #logoMenu {
     color: white;
     transition: transform .2s;
@@ -417,7 +425,7 @@ hr {
     top: 50em;
     width: 70%;
     left: 15%;
-    height: 140em;
+    height: 150em;
     
     -webkit-box-shadow: 0px 0px 54px -16px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 54px -16px rgba(0,0,0,0.75);
@@ -482,6 +490,41 @@ hr {
     top: 75em;
     left: -25em;
 }
+
+/* Detalls productes */
+.detall {
+    left: 50em;
+    border-radius: 5px;
+    border-color: white;
+    border-width: 5px;
+    padding: 3em;
+}
+.fonsDetall {
+    background-color: white;
+    width: 36%;
+    height: 15%;
+    padding: 11em;
+    display: flex;
+    flex-direction: column;
+    margin-left: 33em;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+}
+.pantallaDetall{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    width: 137em;
+    height: 70em;
+    background-image: url(/web/imatges/minimal_forest-1920x1080.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Contacte i forumlari */
 #formulariContacto {
     position: sticky;
 }

@@ -33,7 +33,6 @@
             <div id='botoGestioProductesWeb' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeProductes")'>Gestió productes</div>
             <div id='botoLogoutWeb' class='botoMenu none' onclick='login.tancaLaSessio()'>Sortir</div>
         </div>
-         
         <div id='frontendMenuMobil' class='flexColumn mobile'>
             <i class="material-icons" ontouchend='mostraMenu(event)'>menu</i>
             <i id='logoMenu' class="material-icons">title</i>
@@ -68,6 +67,11 @@
                         <div id='opcionesBuscador2'>Vuelo</div>
                         <input type="radio" value="Vuelo+Hotel">
                         <div id='opcionesBuscador2'>Vuelo+Hotel</div>
+                        <div id='opcionesBuscador3'>
+                            <p>Fecha: <input type="text" name="nombre" size="40"></p>
+                            <p>Destino: <input type="text" name="nombre" size="40"></p>
+                            <input id='botonBuscador' type="submit" value="Buscar combinaciones" disabled>
+                        </div>
 
                     </div>
                 </div>
@@ -177,7 +181,7 @@
         </div>
         <div id='frontendProducte'>
             <div id='producteLoading'>Carregant producte...</div>
-            <div id='producteContingut'></div>
+            <div id='producteContinguts'></div>
         </div>
         <div id='frontendContacte' style="background-image: url('/web/imatges/sf_1.jpg');">
             <div id='contingutContacte'>
